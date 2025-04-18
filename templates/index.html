@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram Automation</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="p-6 font-sans bg-gray-100">
+  <div class="max-w-2xl mx-auto bg-white shadow p-6 rounded">
+    <form action="/login" method="post">
+      <h2 class="text-xl font-bold mb-4">Instagram Login</h2>
+      <input name="username" placeholder="Username" required class="input" />
+      <input type="password" name="password" placeholder="Password" required class="input" />
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+
+  <!-- Dashboard -->
+  {% if step == "dashboard" %}
+  <div class="max-w-3xl mx-auto mt-6 bg-white shadow p-6 rounded">
+    <form action="/start-campaign" method="post">
+      <h2 class="text-xl font-bold mb-4">DM Campaign</h2>
+      <input name="target" placeholder="Target username" class="input" required />
+      <textarea name="message" placeholder="Your DM message" class="input" required></textarea>
+      <select name="mode" class="input">
+        <option value="followers">Followers</option>
+        <option value="following">Following</option>
+      </select>
+      <input name="limit" type="number" placeholder="Accounts to message" class="input" required />
+      <input name="delay" type="number" step="0.1" placeholder="Delay (s)" class="input" required />
+      <button type="submit" class="btn">Start</button>
+    </form>
+  </div>
+  {% endif %}
+</body>
+</html>
